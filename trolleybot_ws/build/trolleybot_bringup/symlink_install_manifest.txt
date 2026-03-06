@@ -1,0 +1,16 @@
+/home/karan/robomanthan/trolley bot/trolleybot/trolleybot_ws/install/trolleybot_bringup/share/trolleybot_bringup/launch/bringup.launch.py
+/home/karan/robomanthan/trolley bot/trolleybot/trolleybot_ws/install/trolleybot_bringup/share/ament_index/resource_index/package_run_dependencies/trolleybot_bringup
+/home/karan/robomanthan/trolley bot/trolleybot/trolleybot_ws/install/trolleybot_bringup/share/ament_index/resource_index/parent_prefix_path/trolleybot_bringup
+/home/karan/robomanthan/trolley bot/trolleybot/trolleybot_ws/install/trolleybot_bringup/share/trolleybot_bringup/environment/ament_prefix_path.sh
+/home/karan/robomanthan/trolley bot/trolleybot/trolleybot_ws/install/trolleybot_bringup/share/trolleybot_bringup/environment/ament_prefix_path.dsv
+/home/karan/robomanthan/trolley bot/trolleybot/trolleybot_ws/install/trolleybot_bringup/share/trolleybot_bringup/environment/path.sh
+/home/karan/robomanthan/trolley bot/trolleybot/trolleybot_ws/install/trolleybot_bringup/share/trolleybot_bringup/environment/path.dsv
+/home/karan/robomanthan/trolley bot/trolleybot/trolleybot_ws/install/trolleybot_bringup/share/trolleybot_bringup/local_setup.bash
+/home/karan/robomanthan/trolley bot/trolleybot/trolleybot_ws/install/trolleybot_bringup/share/trolleybot_bringup/local_setup.sh
+/home/karan/robomanthan/trolley bot/trolleybot/trolleybot_ws/install/trolleybot_bringup/share/trolleybot_bringup/local_setup.zsh
+/home/karan/robomanthan/trolley bot/trolleybot/trolleybot_ws/install/trolleybot_bringup/share/trolleybot_bringup/local_setup.dsv
+/home/karan/robomanthan/trolley bot/trolleybot/trolleybot_ws/install/trolleybot_bringup/share/trolleybot_bringup/package.dsv
+/home/karan/robomanthan/trolley bot/trolleybot/trolleybot_ws/install/trolleybot_bringup/share/ament_index/resource_index/packages/trolleybot_bringup
+/home/karan/robomanthan/trolley bot/trolleybot/trolleybot_ws/install/trolleybot_bringup/share/trolleybot_bringup/cmake/trolleybot_bringupConfig.cmake
+/home/karan/robomanthan/trolley bot/trolleybot/trolleybot_ws/install/trolleybot_bringup/share/trolleybot_bringup/cmake/trolleybot_bringupConfig-version.cmake
+/home/karan/robomanthan/trolley bot/trolleybot/trolleybot_ws/install/trolleybot_bringup/share/trolleybot_bringup/package.xml

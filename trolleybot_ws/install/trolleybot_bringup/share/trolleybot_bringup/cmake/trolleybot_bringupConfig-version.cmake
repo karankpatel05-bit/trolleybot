@@ -1,0 +1,1 @@
+/home/karan/robomanthan/trolley bot/trolleybot/trolleybot_ws/build/trolleybot_bringup/ament_cmake_core/trolleybot_bringupConfig-version.cmake

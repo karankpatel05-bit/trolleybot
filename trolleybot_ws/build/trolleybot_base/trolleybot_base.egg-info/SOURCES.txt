@@ -1,0 +1,13 @@
+package.xml
+setup.cfg
+setup.py
+resource/trolleybot_base
+trolleybot_base/__init__.py
+trolleybot_base/base_node.py
+trolleybot_base.egg-info/PKG-INFO
+trolleybot_base.egg-info/SOURCES.txt
+trolleybot_base.egg-info/dependency_links.txt
+trolleybot_base.egg-info/entry_points.txt
+trolleybot_base.egg-info/requires.txt
+trolleybot_base.egg-info/top_level.txt
+trolleybot_base.egg-info/zip-safe

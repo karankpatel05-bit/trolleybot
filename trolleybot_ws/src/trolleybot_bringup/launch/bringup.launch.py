@@ -47,21 +47,13 @@ def generate_launch_description():
     )
 
     # 4. SLAM Toolbox
-    slam_params_file = os.path.join(pkg_slam, 'config', 'mapper_params_online_async.yaml')
-    slam_node = Node(
-        package='slam_toolbox',
-        executable='async_slam_toolbox_node',
-        name='slam_toolbox',
-        output='screen',
-        parameters=[
-          slam_params_file,
-          {'use_sim_time': False}
-        ]
+    slam_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([os.path.join(pkg_slam, 'launch', 'slam.launch.py')]),
     )
 
     return LaunchDescription([
         rsp_launch,
         base_node,
         TimerAction(period=2.0, actions=[lidar_node]), # Wait for 2s before starting lidar
-        TimerAction(period=5.0, actions=[slam_node])  # Wait for 5s before starting SLAM
+        TimerAction(period=5.0, actions=[slam_launch])  # Wait for 5s before starting SLAM
     ])

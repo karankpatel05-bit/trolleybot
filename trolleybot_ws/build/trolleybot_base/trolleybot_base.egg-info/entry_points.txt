@@ -1,0 +1,3 @@
+[console_scripts]
+base_node = trolleybot_base.base_node:main
+
