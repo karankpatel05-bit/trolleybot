@@ -1,0 +1,5 @@
+pyserial>=3.5
+# Note: ROS2 Humble should already be installed on the system as you mentioned.
+# For ROS2 specific Python packages if any are missed, run:
+# sudo apt install python3-colcon-common-extensions
+# sudo apt install ros-humble-slam-toolbox ros-humble-rplidar-ros ros-humble-xacro ros-humble-robot-state-publisher
