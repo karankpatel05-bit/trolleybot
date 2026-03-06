@@ -1,1 +1,0 @@
-/home/karan/robomanthan/trolley bot/trolleybot/trolleybot_ws/src/trolleybot_description/launch/rsp.launch.py

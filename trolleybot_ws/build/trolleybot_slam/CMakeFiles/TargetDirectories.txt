@@ -1,9 +1,0 @@
-/home/karan/robomanthan/trolley bot/trolleybot/trolleybot_ws/build/trolleybot_slam/CMakeFiles/uninstall.dir
-/home/karan/robomanthan/trolley bot/trolleybot/trolleybot_ws/build/trolleybot_slam/CMakeFiles/trolleybot_slam_uninstall.dir
-/home/karan/robomanthan/trolley bot/trolleybot/trolleybot_ws/build/trolleybot_slam/CMakeFiles/test.dir
-/home/karan/robomanthan/trolley bot/trolleybot/trolleybot_ws/build/trolleybot_slam/CMakeFiles/edit_cache.dir
-/home/karan/robomanthan/trolley bot/trolleybot/trolleybot_ws/build/trolleybot_slam/CMakeFiles/rebuild_cache.dir
-/home/karan/robomanthan/trolley bot/trolleybot/trolleybot_ws/build/trolleybot_slam/CMakeFiles/list_install_components.dir
-/home/karan/robomanthan/trolley bot/trolleybot/trolleybot_ws/build/trolleybot_slam/CMakeFiles/install.dir
-/home/karan/robomanthan/trolley bot/trolleybot/trolleybot_ws/build/trolleybot_slam/CMakeFiles/install/local.dir
-/home/karan/robomanthan/trolley bot/trolleybot/trolleybot_ws/build/trolleybot_slam/CMakeFiles/install/strip.dir

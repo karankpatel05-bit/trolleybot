@@ -1,0 +1,38 @@
+# ROS 2 Workspaces
+trolleybot_ws/build/
+trolleybot_ws/install/
+trolleybot_ws/log/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+venv/
+env/
+.venv/
+.env/
+
+# Arduino
+build/
+*.hex
+*.elf
+*.bin
+
+# C/C++ build files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.a
+*.o
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS specific
+.DS_Store
+Thumbs.db
