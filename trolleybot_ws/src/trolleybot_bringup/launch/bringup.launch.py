@@ -30,19 +30,18 @@ def generate_launch_description():
         }]
     )
 
-    # 3. Lidar Node (Assuming standard sllidar_ros2 or rplidar_ros package structure)
-    # The actual executable name may vary based on whether you install sllidar_ros2 or rplidar_ros.
-    # We will assume rplidar_ros for standard ROS2 RPLidar A1M8 setup.
+    # 3. Lidar Node (rplidar_ros package)
     lidar_node = Node(
-        package='sllidar_ros2',
-        executable='sllidar_node',
-        name='sllidar_node',
-        parameters=[{'channel_type':'serial',
-                     'serial_port': '/dev/ttyUSB1', # Adjust if Lidar gets /dev/ttyUSB0
-                     'serial_baudrate': 115200,
-                     'frame_id': 'laser_frame',
-                     'inverted': False,
-                     'angle_compensate': True}],
+        package='rplidar_ros',
+        executable='rplidar_composition',
+        name='rplidar_node',
+        parameters=[{
+            'serial_port': '/dev/ttyUSB1', # Adjust if Lidar gets /dev/ttyUSB0
+            'serial_baudrate': 115200,
+            'frame_id': 'laser_frame',
+            'inverted': False,
+            'angle_compensate': True
+        }],
         output='screen'
     )
 
