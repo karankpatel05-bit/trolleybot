@@ -79,6 +79,9 @@ class TrolleyBotBase(Node):
                     current_left_ticks = int(left_ticks_str)
                     current_right_ticks = int(right_ticks_str)
                     
+                    # Log the ticks to the terminal as requested
+                    self.get_logger().info(f"e {current_left_ticks} {current_right_ticks}")
+                    
                     self.update_odometry(current_left_ticks, current_right_ticks)
             except Exception as e:
                 self.get_logger().debug(f"Serial read error: {e}")
