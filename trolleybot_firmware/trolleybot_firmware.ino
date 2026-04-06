@@ -1,20 +1,20 @@
-// TrolleyBot Arduino Nano Firmware
-// Handles N20 Motors with Encoders and Serial Communication with RPi
+// TrolleyBot ESP32 Firmware
+// Handles Normal DC Motors with KY-040 360-degree Encoders and Serial Communication with RPi
 
 // --- Pin Definitions ---
 // Motor 1 (Left Side)
-const int LEFT_ENCA = 2; // Yellow wire -> D2 (Interrupt 0)
-const int LEFT_ENCB = 4; // Green wire -> D4 (Direction)
-const int LEFT_PWM = 10; // ENA -> D10
-const int LEFT_IN1 = 9;  // IN1 -> D9
-const int LEFT_IN2 = 8;  // IN2 -> D8
+const int LEFT_PWM = 14; // ENA -> GPIO14
+const int LEFT_IN1 = 27; // IN1 -> GPIO27
+const int LEFT_IN2 = 26; // IN2 -> GPIO26
+const int LEFT_ENCA = 18; // Encoder A (CLK) -> GPIO18 (Interrupt)
+const int LEFT_ENCB = 19; // Encoder B (DT) -> GPIO19
 
 // Motor 2 (Right Side)
-const int RIGHT_ENCA = 3; // Yellow wire -> D3 (Interrupt 1)
-const int RIGHT_ENCB = 11; // Green wire -> D11 (Direction)
-const int RIGHT_PWM = 5;  // ENB -> D5
-const int RIGHT_IN1 = 7;  // IN3 -> D7
-const int RIGHT_IN2 = 6;  // IN4 -> D6
+const int RIGHT_PWM = 32; // ENB -> GPIO32
+const int RIGHT_IN1 = 33; // IN3 -> GPIO33
+const int RIGHT_IN2 = 25; // IN4 -> GPIO25
+const int RIGHT_ENCA = 21; // Encoder A (CLK) -> GPIO21 (Interrupt)
+const int RIGHT_ENCB = 22; // Encoder B (DT) -> GPIO22
 
 // --- Variables ---
 volatile long left_ticks = 0;
@@ -35,6 +35,24 @@ float right_integral = 0;
 long prev_time = 0;
 const int LOOP_TIME = 50; // ms (20Hz)
 
+// --- Interrupt Service Routines ---
+// ESP32 requires IRAM_ATTR for hardware interrupts to run from RAM for speed/safety.
+void IRAM_ATTR left_encoder_isr() {
+  if (digitalRead(LEFT_ENCB) == LOW) {
+    left_ticks--; // Depending on motor direction, usually encoder B indicates direction
+  } else {
+    left_ticks++;
+  }
+}
+
+void IRAM_ATTR right_encoder_isr() {
+  if (digitalRead(RIGHT_ENCB) == LOW) {
+    right_ticks++; // May need to swap ++ and -- depending on motor vs encoder physical orientation
+  } else {
+    right_ticks--;
+  }
+}
+
 void setup() {
   Serial.begin(115200);
 
@@ -47,6 +65,8 @@ void setup() {
   pinMode(RIGHT_IN2, OUTPUT);
 
   // Encoder Pins
+  // Note: We use INPUT_PULLUP in case the encoder module doesn't have internal pullups, 
+  // though KY-040 usually does. It's safer to enable the ESP32's internal pullups.
   pinMode(LEFT_ENCA, INPUT_PULLUP);
   pinMode(LEFT_ENCB, INPUT_PULLUP);
   pinMode(RIGHT_ENCA, INPUT_PULLUP);
@@ -126,6 +146,7 @@ void set_motor(int motor, int pwm) {
   if (pwm > 255) pwm = 255;
 
   if (motor == 1) { // Left
+    // ESP32 Arduino Core supports analogWrite out of the box in modern versions
     analogWrite(LEFT_PWM, pwm);
     if (dir == 1) {
       digitalWrite(LEFT_IN1, HIGH);
@@ -151,22 +172,5 @@ void set_motor(int motor, int pwm) {
       digitalWrite(RIGHT_IN1, LOW);
       digitalWrite(RIGHT_IN2, LOW);
     }
-  }
-}
-
-// --- Interrupt Service Routines ---
-void left_encoder_isr() {
-  if (digitalRead(LEFT_ENCB) == LOW) {
-    left_ticks++;
-  } else {
-    left_ticks--;
-  }
-}
-
-void right_encoder_isr() {
-  if (digitalRead(RIGHT_ENCB) == LOW) {
-    right_ticks++;
-  } else {
-    right_ticks--;
   }
 }

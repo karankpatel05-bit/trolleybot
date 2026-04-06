@@ -71,7 +71,7 @@ class TrolleyBotBase(Node):
         if not self.serial_conn:
             return
             
-        if self.serial_conn.in_waiting > 0:
+        while self.serial_conn.in_waiting > 0:
             try:
                 line = self.serial_conn.readline().decode('utf-8').strip()
                 if ',' in line:
@@ -87,6 +87,16 @@ class TrolleyBotBase(Node):
         current_time = self.get_clock().now()
         dt = (current_time - self.last_time).nanoseconds / 1e9
         
+        # Reset detection: If jump is too large, assume ESP32 restarted
+        # Using 50% of a full revolution as a threshold for a 50ms window
+        if abs(left_ticks - self.prev_left_ticks) > (self.ticks_per_rev / 2.0) or \
+           abs(right_ticks - self.prev_right_ticks) > (self.ticks_per_rev / 2.0):
+            self.get_logger().info("Encoder jump detected (likely reset). Synchronizing ticks.")
+            self.prev_left_ticks = left_ticks
+            self.prev_right_ticks = right_ticks
+            self.last_time = current_time
+            return
+
         d_left = (left_ticks - self.prev_left_ticks) * self.meters_per_tick
         d_right = (right_ticks - self.prev_right_ticks) * self.meters_per_tick
         
@@ -105,6 +115,9 @@ class TrolleyBotBase(Node):
             self.x += d_center * math.cos(self.th + d_theta / 2.0)
             self.y += d_center * math.sin(self.th + d_theta / 2.0)
             self.th += d_theta
+            
+        # Wrap heading to [-pi, pi]
+        self.th = math.atan2(math.sin(self.th), math.cos(self.th))
             
         # Publish tf
         t = TransformStamped()

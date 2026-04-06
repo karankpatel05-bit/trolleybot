@@ -26,7 +26,7 @@ def generate_launch_description():
             'baudrate': 115200,
             'wheel_radius': 0.033,
             'wheel_separation': 0.16,
-            'ticks_per_rev': 330.0
+            'ticks_per_rev': 600.0  # updated for KY-040 on motor shaft (assuming 1:30 gear ratio)
         }]
     )
 
