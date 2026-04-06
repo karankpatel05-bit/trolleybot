@@ -6,6 +6,13 @@ A ROS 2 (Humble) based autonomous robotic trolley.
 
 When cloning or pulling this repository onto the Raspberry Pi, you need to build the workspace locally.
 
+### 0. Clone the Repository
+
+```bash
+git clone https://github.com/karankpatel05-bit/trolleybot
+cd trolleybot
+```
+
 ### 1. Build the Workspace
 
 ```bash
